@@ -1,10 +1,10 @@
-install.packages("sets") # só precisa instalar uma vez 
+install.packages("sets") # sÃ³ precisa instalar uma vez 
 library(sets) # carregar toda vez que inicar o R 
 
 sets_options('universe', seq(10,70,0.1)) #definir o universo
-#Granulalidade: tipo a descida do gradiente (colocar número menor pra treinar melhor o modelo)
+#Granulalidade: tipo a descida do gradiente (colocar nÃºmero menor pra treinar melhor o modelo)
 
-## definir as variáveis 
+## definir as variÃ¡veis 
 variables <-
   set(peso = 
          fuzzy_variable(leve  = fuzzy_triangular(corners=c(10,20,30)),
@@ -40,7 +40,9 @@ print(model)
 windows()
 plot(model)
 
+#Inferir valores
 example.1 <- fuzzy_inference(model, list(peso = 20, comprimento_circunferencia = 58))
+# DefuzzificaÃ§Ã£o
 gset_defuzzify(example.1, "smallestofmax")
 windows()
 plot(example.1)
